@@ -1,0 +1,9 @@
+{
+    "java.project.sourcePaths": [
+        "Unit1\\src"
+    ],
+    "java.project.referencedLibraries": [
+        "SetupFiles\\karel2_c.jar",
+        "SetupFiles\\xercesImpl.jar"
+    ]
+}
