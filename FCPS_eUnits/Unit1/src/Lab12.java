@@ -28,6 +28,7 @@
        public static void main(String[] args)
       {
          Display.openWorld("maps/spiral.map");
+         // Display.openWorld("FCPS_eUnits/Unit1/maps/spiral.map");
          Display.setSize(10, 10);
          Display.setSpeed(8);
          if(Math.random() < 0.5)

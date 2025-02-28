@@ -5,5 +5,6 @@
     "java.project.referencedLibraries": [
         "d:\\Github\\Java_Course_v1122\\FCPS_eUnits\\SetupFiles\\karel2_c.jar",
         "d:\\Github\\Java_Course_v1122\\FCPS_eUnits\\SetupFiles\\xercesImpl.jar"
-    ]
+    ],
+    "java.debug.settings.onBuildFailureProceed": true
 }
