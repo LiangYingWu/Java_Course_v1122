@@ -10,7 +10,6 @@
       {
          String filename = JOptionPane.showInputDialog("What robot world?");
          Display.openWorld("maps/"+filename+".map");
-         // Display.openWorld("FCPS_eUnits/Unit1/maps/"+filename+".map");
          Display.setSize(8, 8);
          Display.setSpeed(10);
       

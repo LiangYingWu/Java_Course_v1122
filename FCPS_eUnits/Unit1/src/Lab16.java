@@ -7,7 +7,6 @@
        public static void main(String[] args)
       {
          Display.openWorld("maps/shifty.map");
-         // Display.openWorld("FCPS_eUnits/Unit1/maps/shifty.map");
          Display.setSize(10, 10);
          Display.setSpeed(8);
       

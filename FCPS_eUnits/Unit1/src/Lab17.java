@@ -16,15 +16,10 @@
       {
          String filename = JOptionPane.showInputDialog("What robot world?");
          Display.openWorld("maps/"+filename+".map");
-         // Display.openWorld("FCPS_eUnits/Unit1/maps/"+filename+".map");
          Display.setSize(8, 8);
          Display.setSpeed(10);
-         Thread t1 = new Thread(new Republican());
-         Thread t2 = new Thread(new Democrat());
-         t1.start();
-         t2.start();
-         // escape_the_maze( new Democrat() );
-         // escape_the_maze( new Republican() );
-      	// escape_the_maze( new Independent() );
+         //escape_the_maze( new Democrat() );
+         escape_the_maze( new Republican() );
+      	//escape_the_maze( new Independent() );
       }
    }
