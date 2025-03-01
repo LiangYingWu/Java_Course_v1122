@@ -1,6 +1,11 @@
 {
     "java.project.sourcePaths": [
-        "FCPS_eUnits\\Unit1\\src"
+        "FCPS_eUnits/Unit2/src/Lab03",
+        "FCPS_eUnits/Unit2/src/Lab02",
+        "FCPS_eUnits/Unit2/src/Lab01",
+        "FCPS_eUnits/Unit2/src/Lab00",
+        "FCPS_eUnits/Unit1/src",
+        "FCPS_eUnits/Unit2/src/Lab04"
     ],
     "java.project.referencedLibraries": [
         "d:\\Github\\Java_Course_v1122\\FCPS_eUnits\\SetupFiles\\karel2_c.jar",
