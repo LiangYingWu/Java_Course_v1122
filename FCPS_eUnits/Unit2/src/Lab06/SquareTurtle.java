@@ -33,12 +33,10 @@
       }
        public void drawShape()
       {
-      
-         /************************/
-      	/*                      */
-      	/* Your code goes here. */
-      	/*                      */
-      	/************************/
-      
+         for(int a = 0; a < 4; a++){
+            setPenDown(true);
+            forward(mySize);
+            turnLeft(90);
+         }
       }
    }

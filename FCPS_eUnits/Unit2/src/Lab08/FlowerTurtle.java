@@ -26,23 +26,28 @@
       }
       private void drawPetals() //starts and ends at center facing north
       {
-      
-         /************************/
-      	/*                      */
-      	/* Your code goes here. */
-      	/*                      */
-      	/************************/
-      
+         super.setColor(myColor);
+         for(int a = 0; a < 30; a++){
+            setPenDown(true);
+            forward(mySize);
+            back(mySize);
+            turnLeft(12);
+         }
       }
       private void drawStem() //starts at top of stem facing south, ends at bottom
       {
-      
-         /************************/
-      	/*                      */
-      	/* Your code goes here. */
-      	/*                      */
-      	/************************/
-      
+         turnLeft(180);
+         super.setColor(myColor);
+         forward(mySize);
+         super.setColor(Color.GREEN);
+         forward(1.5 * mySize);
+         back(0.5 * mySize);
+         turnLeft(135);
+         forward(mySize);
+         back(mySize);
+         turnLeft(90);
+         forward(0.5 * mySize);
+         back(0.5 * mySize);
       }
       public void drawShape()
       {

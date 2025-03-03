@@ -31,12 +31,11 @@
       }
        public void drawShape()
       {
-      
-         /************************/
-      	/*                      */
-      	/* Your code goes here. */
-      	/*                      */
-      	/************************/
-      
+         double angle = 180 - ((mySides - 2) * 180 / mySides);
+         for(int a = 0; a < mySides; a++){
+            setPenDown(true);
+            forward(mySize);
+            turnLeft(angle);
+         }
       }
    }
