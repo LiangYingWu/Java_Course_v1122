@@ -25,26 +25,31 @@
          String filename = JOptionPane.showInputDialog("What robot world?");
          String type = JOptionPane.showInputDialog("What type of racer?");
       
-         Display.openWorld("maps/"+filename+".map");
-         // Display.openWorld("FCPS_eUnits/Unit1/maps/"+filename+".map");
+         // Display.openWorld("maps/"+filename+".map");
+         Display.openWorld("FCPS_eUnits/Unit1/maps/"+filename+".map");
          Display.setSize(18, 16);
          Display.setSpeed(10);
       
-         if(type.equals("Racer"))
-         {
-            race( new Racer(1) );
-         }
-         else if(type.equals("SteepleChaseRacer"))
-         {
-            race( new SteepleChaseRacer(1) );
-         }
-         else if(type.equals("BoxTopRacer"))
-         {
-            race( new BoxTopRacer(1) );
-         }
-         else
-         {
-            System.out.println("Invalid robot type.");
-         }
+         // if(type.equals("Racer"))
+         // {
+         //    race( new Racer(1) );
+         // }
+         // else if(type.equals("SteepleChaseRacer"))
+         // {
+         //    race( new SteepleChaseRacer(1) );
+         // }
+         // else if(type.equals("BoxTopRacer"))
+         // {
+         //    race( new BoxTopRacer(1) );
+         // }
+         // else
+         // {
+         //    System.out.println("Invalid robot type.");
+         // }
+
+         Robot apple = new Racer(1);
+         // Racer banana = (Racer)apple;
+         race(apple);
+         // race(banana);
       }
    }
