@@ -22,5 +22,14 @@ public class Panel02 extends JPanel{
         g.setColor(Color.WHITE);
         g.drawString("Our Fearless Leader", 105, 320);
 
+        // for(int y = 0; y < 5; y++)
+        //     g.drawLine(200, 0, y*50, 200);
+
+        // for(int y = 20; y <= 80; y+=20)
+        //     g.fillOval(20, y, 20, 20);
+            
+        // int y = 0;
+        // for(int x = 0; x < 400; x+=50)
+        //     g.drawOval(x, y+=50, 50, 50);          
     }
 }
