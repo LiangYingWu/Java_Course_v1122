@@ -7,8 +7,8 @@
        public static void main(String[] args) 
       {
          String filename = JOptionPane.showInputDialog("What robot world?");
-         Display.openWorld("maps/" + filename + ".map");
-         // Display.openWorld("FCPS_eUnits/Unit1/maps/" + filename + ".map");
+         // Display.openWorld("maps/" + filename + ".map");
+         Display.openWorld("FCPS_eUnits/Unit1/maps/" + filename + ".map");
          Display.setSize(10, 10);
          Display.setSpeed(10);
       
@@ -58,22 +58,27 @@
        public static void task_04()	
       { //go to the wall, pick up all the beepers (max one per pile)
          Robot temp = new Robot(1, 4, Display.EAST, 0);
+         int beeper_num = 0;
          for(int a = 0; a < 9; a++){
             if(temp.nextToABeeper()){
                temp.pickBeeper();
+               beeper_num++;
             }
             if(!temp.frontIsClear()){
                break;
             }
             temp.move();
          }
+         System.out.println("task_04: " + beeper_num);
       }
        public static void task_05()	
       { //go to the wall, pick up all the beepers
          Robot temp = new Robot(1, 5, Display.EAST, 0);
+         int beeper_num = 0;
          for(int a = 0; a < 9; a++){
             while(temp.nextToABeeper()){
                temp.pickBeeper();
+               beeper_num++;
             }
             if(temp.frontIsClear()){
                temp.move();
@@ -82,6 +87,7 @@
                break;
             }
          }
+         System.out.println("task_05: " + beeper_num);
       }
        public static void task_06()
       { //go to the end of the row of beepers, there is one gap
