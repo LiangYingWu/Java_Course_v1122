@@ -23,11 +23,11 @@ public class Lab10 {
     // }
     public static void followWallsRight(Athlete arg){
         ArrayList<Integer[]> apple = new ArrayList<>();
-        int n = 0;
         boolean end = false;
         boolean goback = false;
 
         while(!end){
+            int n = 0;
             if(apple.isEmpty()){
                 apple.add(new Integer[]{0, 0});
             }
@@ -48,7 +48,6 @@ public class Lab10 {
                     apple.add(new Integer[]{n, 0});
                 }
             }
-            n = 0;
 
             if(arg.rightIsClear()){
                 arg.turnRight();
@@ -69,17 +68,21 @@ public class Lab10 {
                 }
                 arg.move();
                 if(arg.nextToABeeper()){
-                    if(arg.frontIsClear()){
+                    if(!arg.frontIsClear()){
+                        arg.turnLeft();
+                        if(!arg.frontIsClear()){
+                            arg.turnAround();
+                        }
+                    }
+                    arg.move();
+                    if(!arg.nextToABeeper() && arg.frontIsClear() && arg.rightIsClear() && arg.leftIsClear()){
+                        end = true;
+                        break;
+                    }
+                    else{
+                        arg.turnAround();
                         arg.move();
-                        if(!arg.nextToABeeper() && arg.frontIsClear() && arg.rightIsClear() && arg.leftIsClear()){
-                            end = true;
-                            break;
-                        }
-                        else{
-                            arg.turnAround();
-                            arg.move();
-                            arg.turnAround();
-                        }
+                        arg.turnAround();
                     }
                 }
                 Integer[] apple_last = apple.get(apple.size() - 1);
@@ -112,7 +115,6 @@ public class Lab10 {
             System.out.println("======goback:" + goback + "======");
             for(int a = 0; a < apple.size(); a++){
                 System.out.println("======" + "apple: " + apple.get(a)[0] + "," +apple.get(a)[1] + "======");
-
             }
         }
     }
@@ -229,8 +231,8 @@ public class Lab10 {
     }
     public static void main(String[] args){
         String filename = JOptionPane.showInputDialog("What robot world?");
-        // Display.openWorld("maps/"+filename+".map");
-        Display.openWorld("FCPS_eUnits/Unit1/maps/"+filename+".map");
+        Display.openWorld("maps/"+filename+".map");
+        // Display.openWorld("FCPS_eUnits/Unit1/maps/"+filename+".map");
         Display.setSpeed(10);
         
         Athlete apple = new Athlete(1, 1, Display.EAST, Display.INFINITY);
