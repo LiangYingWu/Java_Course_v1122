@@ -14,6 +14,7 @@
       private BufferedImage myImage;
       private Graphics myBuffer;
       private Ball ball;
+      private TJ thomas;
       private Timer t;
        public PinballPanel()
       {
@@ -24,6 +25,7 @@
          int xPos = (int)(Math.random()*(FRAME-100) + 50);
          int yPos = (int)(Math.random()*(FRAME-100)+ 50);
          ball = new Ball(xPos, yPos, 50, Color.BLACK);
+         thomas = new TJ(xPos, yPos, 50, Color.BLACK);
         
          t = new Timer(5, new Listener());
          t.start();
@@ -39,7 +41,9 @@
             myBuffer.setColor(BACKGROUND);    //cover the 
             myBuffer.fillRect(0,0,FRAME,FRAME);   //old ball
             ball.move(FRAME,FRAME);
-            ball.draw(myBuffer);     
+            ball.draw(myBuffer);
+            thomas.move(FRAME,FRAME);
+            thomas.draw(myBuffer);
             repaint();
          }
       }
