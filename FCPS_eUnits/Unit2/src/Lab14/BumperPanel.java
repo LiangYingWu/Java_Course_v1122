@@ -30,19 +30,30 @@
          myImage =  new BufferedImage(FRAME, FRAME, BufferedImage.TYPE_INT_RGB);
          myBuffer = myImage.getGraphics();
          
-         // create ball and jump
-      
-      
-         // create prize and jump
-      
+         
+         ball = new Ball(Math.random() * (FRAME - BALL_DIAM / 2) + BALL_DIAM / 2, 
+                         Math.random() * (FRAME - BALL_DIAM / 2) + BALL_DIAM / 2, 
+                         BALL_DIAM, 
+                         BALL_COLOR);
+         prize = new Polkadot(Math.random() * (FRAME - PRIZE_DIAM / 2) + PRIZE_DIAM / 2, 
+                              Math.random() * (FRAME - PRIZE_DIAM / 2) + PRIZE_DIAM / 2, 
+                              PRIZE_DIAM, 
+                              PRIZE_COLOR);
             
          // create bumper and jump
+         bumper = new Bumper((int)(Math.random() * (FRAME - BUMPER_X_WIDTH)), 
+                             (int)(Math.random() * (FRAME - BUMPER_Y_WIDTH)), 
+                             BUMPER_X_WIDTH, 
+                             BUMPER_Y_WIDTH, 
+                             BUMPER_COLOR);
       
       	
          // ensure ball is outside the bumper
+         while(bumper.inBumper(ball)) ball.jump(FRAME, FRAME);
       
         
       	// ensure prize is outside the bumper
+         while(bumper.inBumper(prize)) prize.jump(FRAME, FRAME);
       
       
          hits = 0;

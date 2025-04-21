@@ -1,10 +1,10 @@
    //Torbert, e-mail: mr@torbert.com, website: www.mr.torbert.com
 	//version 6.17.2003
 
-   import javax.swing.*;
    import java.awt.*;
    import java.awt.event.*;
    import java.awt.image.*;
+   import javax.swing.*;
     public class KarelPanel extends JPanel
    {
       private static final int WIDTH = 395, HEIGHT = 391; //constants
@@ -19,10 +19,10 @@
          myImage =  new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
          myBuffer = myImage.getGraphics();
          myArray = new ImageIcon[4];
-         myArray[0] = new ImageIcon("karele.gif");   //east
-         myArray[1] = new ImageIcon("kareln.gif");   //north
-         myArray[2] = new ImageIcon("karelw.gif");   //west
-         myArray[3] = new ImageIcon("karels.gif");   //south
+         myArray[0] = new ImageIcon("D:/Github/Java_Course_v1122/FCPS_eUnits/Unit2/src/Lab15/karele.gif");   //east
+         myArray[1] = new ImageIcon("D:/Github/Java_Course_v1122/FCPS_eUnits/Unit2/src/Lab15/kareln.gif");   //north
+         myArray[2] = new ImageIcon("D:/Github/Java_Course_v1122/FCPS_eUnits/Unit2/src/Lab15/karelw.gif");   //west
+         myArray[3] = new ImageIcon("D:/Github/Java_Course_v1122/FCPS_eUnits/Unit2/src/Lab15/karels.gif");   //south
          dir = 0;     //start facing east
          xPos = 5;    //starting xPos
          yPos = HEIGHT - 3 - myArray[dir].getImage().getHeight(null); //starting yPos
@@ -42,23 +42,50 @@
             myBuffer.setColor(Color.red);
             for(int x = 17; x < WIDTH; x += 30) //vertical lines
             {
-               myBuffer.drawLine(/*     */);
+               myBuffer.drawLine(x, 0, x, HEIGHT);
             }
             for(int y = 9; y < HEIGHT; y += 28) //horizontal lines
             {
-               myBuffer.drawLine(/*     */);
+               myBuffer.drawLine(0, y, WIDTH, y);
             }
             myBuffer.fillRect(107, 121, 180, 56);
             myBuffer.setColor(Color.black);
             myBuffer.setFont(new java.awt.Font("SansSerif", java.awt.Font.BOLD, 20));
             myBuffer.drawString("Karel the Robot", 125, 155);
             
-         	/*************************************
-         	Calculate karel's xPos and yPos.
-         	At the end of each row, the dir changes.
-         	The dir controls which image to use.
-         	*************************************/
             myBuffer.drawImage(myArray[dir].getImage(), xPos, yPos, null);
+            // myBuffer.setColor(Color.BLUE);
+            // myBuffer.fillRect(10, 10, 200, 200); 
+            
+            switch (dir) {
+               case 0: xPos += 30;
+                  if (xPos >= HEIGHT - 3 - myArray[dir].getImage().getHeight(null)) {
+                     xPos = HEIGHT - 3 - myArray[dir].getImage().getHeight(null);
+                     dir = 1;
+                  }
+                  break;
+               case 1: yPos -= 28;
+                  if (yPos >= HEIGHT - 3 - myArray[dir].getImage().getHeight(null)) {
+                     yPos = HEIGHT - 3 - myArray[dir].getImage().getHeight(null);
+                     dir = 2;
+                  }
+                  break;
+               case 2: xPos -= 30;
+                  if (xPos <= 5) {
+                     xPos = 5;
+                     dir = 1;
+                  }
+                  break;
+               case 3: yPos += 28;
+                  if (yPos <= 5) {
+                     yPos = 5;
+                     dir = 0;
+                  }
+                  break;
+               default:
+                  xPos = 5;
+                  yPos = HEIGHT - 3 - myArray[dir].getImage().getHeight(null);
+            }
             
             repaint();
          }
